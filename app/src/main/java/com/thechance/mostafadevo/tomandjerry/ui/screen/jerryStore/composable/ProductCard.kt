@@ -137,7 +137,7 @@ fun PriceInfo(
     Box(
         modifier = modifier
             .clip(RoundedCornerShape(8.dp))
-            .background(Color(0xffe9f6fb))
+            .background(Color(0xffD0E5F0))
             .padding(horizontal = 10.dp, vertical = 6.dp)
     ) {
         Row(
