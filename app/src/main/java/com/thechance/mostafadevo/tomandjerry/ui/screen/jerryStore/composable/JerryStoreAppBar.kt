@@ -43,7 +43,7 @@ fun JerryStoreAppBar(modifier: Modifier = Modifier,
 
             Text(
                 text = "Hi, $userName \uD83D\uDC4B\uD83C\uDFFB",
-                fontWeight = FontWeight.Bold,
+                fontWeight = FontWeight.W500,
                 fontSize = 14.sp,
                 color = Color.Black
             )
@@ -51,6 +51,7 @@ fun JerryStoreAppBar(modifier: Modifier = Modifier,
             Text(
                 text = "Which Tom do you want to buy?",
                 fontSize = 12.sp,
+                fontWeight = FontWeight.W400,
                 color = Color(0xFFA5A6A4)
             )
 

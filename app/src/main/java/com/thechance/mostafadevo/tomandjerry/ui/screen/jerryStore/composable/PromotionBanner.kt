@@ -1,5 +1,6 @@
 package com.thechance.mostafadevo.tomandjerry.ui.screen.jerryStore.composable
 
+import android.graphics.drawable.shapes.OvalShape
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -8,6 +9,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -71,28 +73,18 @@ fun PromotionBanner(modifier: Modifier = Modifier) {
         }
         Box(
             modifier = Modifier
-                .graphicsLayer {
-                    rotationZ = 120f
-                    translationX = 100f
-                    translationY = 50f
-                }
-                .clip(RoundedCornerShape(
-                    100
-                ))
+                .graphicsLayer { rotationZ = -60f }
+                .offset(x=9.dp,y=42.dp)
+                .clip(RoundedCornerShape(bottomStart = 100.dp, bottomEnd = 100.dp))
                 .size(width =132.dp , height =110.dp )
                 .align(Alignment.CenterEnd)
                 .background(Color(0xFFFFFFFF).copy(alpha = 0.04f), shape = RoundedCornerShape(100))
         )
         Box(
             modifier = Modifier
-                .graphicsLayer {
-                    rotationZ = 120f
-                    translationX = 80f
-                    translationY = 50f
-                }
-                .clip(RoundedCornerShape(
-                    100
-                ))
+                .graphicsLayer { rotationZ = -60f }
+                .offset(x=5.dp,y=36.dp)
+                .clip(RoundedCornerShape(bottomStart = 100.dp, bottomEnd = 100.dp))
                 .size(width =132.dp , height =110.dp )
                 .align(Alignment.CenterEnd)
                 .background(Color(0xFFFFFFFF).copy(alpha = 0.04f), shape = RoundedCornerShape(100))

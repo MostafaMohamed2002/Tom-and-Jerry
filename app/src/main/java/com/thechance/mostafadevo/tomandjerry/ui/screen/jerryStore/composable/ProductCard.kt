@@ -22,12 +22,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.TextUnit
+import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.thechance.mostafadevo.tomandjerry.R
@@ -93,11 +96,12 @@ fun ProductCard(
                     horizontalArrangement = Arrangement.Center
                 ) {
                     PriceInfo(
+                        modifier = Modifier,
                         oldPrice = product.oldPrice,
                         newPrice = product.newPrice
                     )
                     Spacer(Modifier.size(8.dp))
-                    AddToCartButton(onClick = onAddClick)
+                    AddToCartButton(onClick = onAddClick, modifier = Modifier.size(30.dp))
                 }
             }
         }
@@ -116,16 +120,17 @@ fun ProductCard(
 fun AddToCartButton(modifier: Modifier = Modifier, onClick: () -> Unit) {
     Box(
         modifier = modifier
+            .size(30.dp)
             .border(
                 width = 1.dp, color = Color(0xFF03578A), shape = RoundedCornerShape(8.dp)
             )
-            .size(30.dp)
             .clickable { onClick() }, contentAlignment = Alignment.Center
     ) {
         Image(
             painter = painterResource(
                 R.drawable.add_to_cart_icon
-            ), contentDescription = "Add to cart button", modifier = Modifier.size(16.dp)
+            ), contentDescription = "Add to cart button", modifier = Modifier.size(16.dp),
+            contentScale = ContentScale.Fit
         )
     }
 }
@@ -136,12 +141,14 @@ fun PriceInfo(
 ) {
     Box(
         modifier = modifier
+            .height(30.dp)
             .clip(RoundedCornerShape(8.dp))
             .background(Color(0xffD0E5F0))
             .padding(horizontal = 10.dp, vertical = 6.dp)
     ) {
         Row(
-            verticalAlignment = Alignment.CenterVertically
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center
         ) {
             Image(
                 painter = painterResource(R.drawable.money_bag_01),
@@ -152,15 +159,18 @@ fun PriceInfo(
             if (oldPrice != newPrice) {
                 Text(
                     text = "$oldPrice",
+                    fontWeight = FontWeight.W500,
                     textDecoration = TextDecoration.LineThrough,
                     color = Color(0xFF03578A),
+                    fontSize = 12.sp
                 )
             }
 
             Text(
                 text = " $newPrice cheeses",
-                fontWeight = FontWeight.Bold,
-                color = Color(0xFF03578A),
+                fontWeight = FontWeight.W500,
+                color = Color(0xFF03578A)
+                , fontSize = 12.sp,
             )
 
         }
@@ -182,8 +192,8 @@ private fun ProductCardPrev() {
                 title = "Sport Tom",
                 subTitle = "Disguises itself as a table.\n" +
                         "\n",
-                oldPrice = 6,
-                newPrice = 2,
+                oldPrice = 5,
+                newPrice = 3,
                 tomImage = R.drawable.spy_tom,
             ),
             onAddClick = {}
