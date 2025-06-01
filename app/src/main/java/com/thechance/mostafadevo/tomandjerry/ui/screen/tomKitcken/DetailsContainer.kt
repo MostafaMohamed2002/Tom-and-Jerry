@@ -22,9 +22,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.TextUnit
+import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.thechance.mostafadevo.tomandjerry.R
+import com.thechance.mostafadevo.tomandjerry.ui.theme.black37
+import com.thechance.mostafadevo.tomandjerry.ui.theme.black60
 
 
 @Composable
@@ -57,7 +61,10 @@ fun DetailsContainer(
                 fontSize = 14.sp,
                 fontWeight = FontWeight.W500,
                 textAlign = TextAlign.Center,
-                color = Color(0x99121212)
+                color = black60,
+                letterSpacing = TextUnit(value = 0.5f,type = TextUnitType.Sp),
+                lineHeight = TextUnit(value = 16f,type = TextUnitType.Sp),
+                maxLines = 1
             )
             Spacer(Modifier.size(4.dp))
             Text(
@@ -65,7 +72,10 @@ fun DetailsContainer(
                 fontWeight = FontWeight.W500,
                 fontSize = 12.sp,
                 textAlign = TextAlign.Center,
-                color = Color(0x5E121212)
+                color = black37,
+                letterSpacing = TextUnit(value = 0.5f,type = TextUnitType.Sp),
+                lineHeight = TextUnit(value = 16f,type = TextUnitType.Sp),
+                maxLines = 1
             )
         }
     }

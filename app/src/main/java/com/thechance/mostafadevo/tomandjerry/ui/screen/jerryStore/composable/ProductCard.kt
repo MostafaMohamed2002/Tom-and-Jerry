@@ -94,9 +94,9 @@ fun ProductCard(
                     horizontalArrangement = Arrangement.Center
                 ) {
                     PriceInfo(
-                        modifier = Modifier,
+                        color = Color(0xFFE9F6FB),
                         oldPrice = product.oldPrice,
-                        newPrice = product.newPrice
+                        newPrice = product.newPrice,
                     )
                     Spacer(Modifier.size(8.dp))
                     AddToCartButton(onClick = onAddClick, modifier = Modifier.size(30.dp))
@@ -135,7 +135,7 @@ fun AddToCartButton(modifier: Modifier = Modifier, onClick: () -> Unit) {
 
 @Composable
 fun PriceInfo(
-    modifier: Modifier = Modifier, oldPrice: Int, newPrice: Int
+    modifier: Modifier = Modifier, oldPrice: Int, newPrice: Int, color:Color
 ) {
     Box(
         modifier = modifier
