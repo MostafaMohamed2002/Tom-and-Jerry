@@ -11,12 +11,15 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.TextUnit
+import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.thechance.mostafadevo.tomandjerry.R
@@ -25,7 +28,9 @@ import com.thechance.mostafadevo.tomandjerry.R
 fun JerryStoreAppBar(modifier: Modifier = Modifier,
                      @DrawableRes profileImage:Int ,
                      userName:String) {
-    Row {
+    Row(
+        verticalAlignment = Alignment.CenterVertically
+    ) {
         Image(
             painter = painterResource(profileImage),
             contentDescription = "Profile Image App",
@@ -34,7 +39,7 @@ fun JerryStoreAppBar(modifier: Modifier = Modifier,
                 .clip(RoundedCornerShape(12.dp))
         )
 
-        Spacer(Modifier.padding(8.dp))
+        Spacer(Modifier.size(8.dp))
 
         Column(
             verticalArrangement = Arrangement.Center,
@@ -45,14 +50,16 @@ fun JerryStoreAppBar(modifier: Modifier = Modifier,
                 text = "Hi, $userName \uD83D\uDC4B\uD83C\uDFFB",
                 fontWeight = FontWeight.W500,
                 fontSize = 14.sp,
+                lineHeight = TextUnit(1f, TextUnitType.Sp),
                 color = Color.Black
             )
-
+            Spacer(Modifier.size(2.dp))
             Text(
                 text = "Which Tom do you want to buy?",
                 fontSize = 12.sp,
                 fontWeight = FontWeight.W400,
-                color = Color(0xFFA5A6A4)
+                color = Color(0xFFA5A6A4),
+                lineHeight = TextUnit(1f, TextUnitType.Sp),
             )
 
         }

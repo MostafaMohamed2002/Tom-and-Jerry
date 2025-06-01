@@ -61,21 +61,21 @@ fun JerryStore(modifier: Modifier = Modifier) {
             subTitle = "Disguises itself as a table.\n" + "\n",
             oldPrice = 12,
             newPrice = 12,
-            tomImage = R.drawable.frozen_tom
+            tomImage = R.drawable.spy_tom
         ),
         Product(
             title = "Frozen Tom",
             subTitle = "He was chasing Jerry, he froze after the first look\n",
             oldPrice = 10,
             newPrice = 10,
-            tomImage = R.drawable.sleeping_tom
+            tomImage = R.drawable.frozen_tom
         ),
         Product(
             title = "Sleeping Tom",
             subTitle = "He doesn't chase anyone, he just snores in stereo.\n",
             oldPrice = 10,
             newPrice = 10,
-            tomImage = R.drawable.spy_tom
+            tomImage = R.drawable.sleeping_tom
         ),
     )
     Box(
@@ -88,7 +88,9 @@ fun JerryStore(modifier: Modifier = Modifier) {
             modifier = Modifier
                 .padding(16.dp)
         ) {
-            Row {
+            Row(
+
+            ) {
                 JerryStoreAppBar(
                     profileImage = R.drawable.profile_image_2,
                     userName = "Jerry"
@@ -120,11 +122,16 @@ fun JerryStore(modifier: Modifier = Modifier) {
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = "Cheap tom section", fontSize = 20.sp, fontWeight = FontWeight.Bold
+                    text = "Cheap tom section",
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.Bold
                 )
                 Spacer(Modifier.weight(1f))
                 Text(
-                    text = "View all ", fontSize = 12.sp, color = Color(0xFF03578A)
+                    text = "View all ",
+                    fontSize = 12.sp,
+                    fontWeight = FontWeight.W500,
+                    color = Color(0xFF03578A)
                 )
                 Spacer(Modifier.size(4.dp))
                 Image(

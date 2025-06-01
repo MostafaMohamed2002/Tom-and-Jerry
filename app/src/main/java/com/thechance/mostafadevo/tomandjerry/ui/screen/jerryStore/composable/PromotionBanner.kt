@@ -23,10 +23,12 @@ import androidx.compose.ui.graphics.TileMode
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.thechance.mostafadevo.tomandjerry.R
+import com.thechance.mostafadevo.tomandjerry.ui.theme.white80
 
 @Composable
 fun PromotionBanner(modifier: Modifier = Modifier) {
@@ -60,13 +62,15 @@ fun PromotionBanner(modifier: Modifier = Modifier) {
             Text(
                 text = "Buy 1 Tom and get 2 for free",
                 color = Color.White,
-                fontSize = 16.sp
+                fontSize = 16.sp,
+                fontWeight = FontWeight.W600
             )
             Spacer(Modifier.size(8.dp))
             Text(
                 text = "Adopt Tom! (Free Fail-Free\n Guarantee)",
-                color = Color.White.copy(alpha = 0.8f),
-                fontSize = 16.sp
+                color = white80,
+                fontSize = 16.sp,
+                fontWeight = FontWeight.W400
             )
         }
         }
