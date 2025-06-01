@@ -1,6 +1,5 @@
 package com.thechance.mostafadevo.tomandjerry.ui.screen.jerryStore.composable
 
-import android.graphics.drawable.shapes.OvalShape
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
