@@ -16,18 +16,20 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.TextUnit
-import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 import com.thechance.mostafadevo.tomandjerry.R
 
 @Composable
-fun JerryStoreAppBar(modifier: Modifier = Modifier,
-                     @DrawableRes profileImage:Int ,
-                     userName:String) {
+fun JerryStoreAppBar(
+    modifier: Modifier = Modifier,
+    @DrawableRes profileImage: Int,
+    userName: String
+) {
     Row(
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -43,14 +45,16 @@ fun JerryStoreAppBar(modifier: Modifier = Modifier,
 
         Column(
             verticalArrangement = Arrangement.Center,
-            modifier = Modifier.padding(top = 4.5.dp , bottom = 4.5.dp)
+            modifier = Modifier.padding(top = 4.5.dp, bottom = 4.5.dp)
         ) {
 
             Text(
                 text = "Hi, $userName \uD83D\uDC4B\uD83C\uDFFB",
                 fontWeight = FontWeight.W500,
                 fontSize = 14.sp,
-                lineHeight = TextUnit(1f, TextUnitType.Sp),
+                style = TextStyle(
+                    lineHeight = 1.em
+                ),
                 color = Color.Black
             )
             Spacer(Modifier.size(2.dp))
@@ -59,7 +63,9 @@ fun JerryStoreAppBar(modifier: Modifier = Modifier,
                 fontSize = 12.sp,
                 fontWeight = FontWeight.W400,
                 color = Color(0xFFA5A6A4),
-                lineHeight = TextUnit(1f, TextUnitType.Sp),
+                style = TextStyle(
+                    lineHeight = 1.em
+                ),
             )
 
         }
