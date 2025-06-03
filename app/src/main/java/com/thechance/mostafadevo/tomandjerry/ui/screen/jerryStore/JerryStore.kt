@@ -34,43 +34,43 @@ import com.thechance.mostafadevo.tomandjerry.ui.screen.jerryStore.composable.Set
 
 @Composable
 fun JerryStore(modifier: Modifier = Modifier) {
-    val listOfProducts: List<Product> = listOf(
-        Product(
+    val listOfToms: List<Tom> = listOf(
+        Tom(
             title = "Sport Tom",
             subTitle = "He runs 1 meter... trips over his boot.\n",
             oldPrice = 5,
             newPrice = 3,
             tomImage = R.drawable.sport_tom
         ),
-        Product(
+        Tom(
             title = "Tom the lover",
             subTitle = "He loves one-sidedly... and is beaten by the other side.",
             oldPrice = 5,
             newPrice = 5,
             tomImage = R.drawable.tom_the_lover
         ),
-        Product(
+        Tom(
             title = "Tom the bomb",
             subTitle = "He blows himself up before Jerry can catch him.",
             oldPrice = 10,
             newPrice = 10,
             tomImage = R.drawable.tom_the_bomb
         ),
-        Product(
+        Tom(
             title = "Spy Tom",
             subTitle = "Disguises itself as a table.\n" + "\n",
             oldPrice = 12,
             newPrice = 12,
             tomImage = R.drawable.spy_tom
         ),
-        Product(
+        Tom(
             title = "Frozen Tom",
             subTitle = "He was chasing Jerry, he froze after the first look\n",
             oldPrice = 10,
             newPrice = 10,
             tomImage = R.drawable.frozen_tom
         ),
-        Product(
+        Tom(
             title = "Sleeping Tom",
             subTitle = "He doesn't chase anyone, he just snores in stereo.\n",
             oldPrice = 10,
@@ -148,9 +148,9 @@ fun JerryStore(modifier: Modifier = Modifier) {
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
 
             ) {
-                items(listOfProducts) { product ->
+                items(listOfToms) { product ->
                     ProductCard(
-                        product = product, onAddClick = { })
+                        tom = product, onAddClick = { })
                 }
             }
 

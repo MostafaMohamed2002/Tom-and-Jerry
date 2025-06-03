@@ -27,7 +27,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.clipToBounds
-import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -49,12 +48,12 @@ import com.thechance.mostafadevo.tomandjerry.ui.theme.white87
 
 @Composable
 fun TomKitchen(modifier: Modifier = Modifier) {
-    val preparationMethodItems : List<Pair<Int,String>> =
+    val preparationMethodItems: List<Pair<Int, String>> =
         listOf(
-            Pair(1,"Put the pasta in a toaster."),
-            Pair(2,"Pour battery juice over it."),
-            Pair(3,"Wait for the spark to ignite."),
-            Pair(4,"Serve with an insulating glove."),
+            Pair(1, "Put the pasta in a toaster."),
+            Pair(2, "Pour battery juice over it."),
+            Pair(3, "Wait for the spark to ignite."),
+            Pair(4, "Serve with an insulating glove."),
         )
     Box(
         modifier = modifier.fillMaxSize()
@@ -68,13 +67,10 @@ fun TomKitchen(modifier: Modifier = Modifier) {
                 .clipToBounds()
         ) {
             Image(
-                painter =painterResource(R.drawable.ellipse_3),
+                painter = painterResource(R.drawable.ellipse_3),
                 contentDescription = null,
                 contentScale = ContentScale.Fit,
                 modifier = Modifier
-                    .fillMaxSize()
-                    .align(Alignment.CenterStart)
-                    .scale(1.2f)
 
             )
         }
@@ -88,7 +84,7 @@ fun TomKitchen(modifier: Modifier = Modifier) {
             Column(
                 modifier = Modifier
                     .matchParentSize()
-                    .padding(start = 16.dp , end = 16.dp),
+                    .padding(start = 16.dp, end = 16.dp)
             ) {
                 //page content
                 Spacer(Modifier.size(32.dp))
@@ -101,8 +97,8 @@ fun TomKitchen(modifier: Modifier = Modifier) {
                             fontWeight = FontWeight.W500,
                             fontSize = 20.sp,
                             color = black87,
-                            letterSpacing = TextUnit(0.5f, TextUnitType.Sp)
-
+                            letterSpacing = TextUnit(0.5f, TextUnitType.Sp),
+                            lineHeight = TextUnit(value = 32f, type = TextUnitType.Sp)
                         )
                         Spacer(Modifier.size(12.dp))
                         PriceInfo(
@@ -160,7 +156,7 @@ fun TomKitchen(modifier: Modifier = Modifier) {
                     )
                     DetailsContainer(
                         modifier = Modifier.weight(1f),
-                        icon = R.drawable.devil,
+                        icon = R.drawable.evil,
                         title = "1M 12K",
                         subTitle = "No. of deaths"
                     )
@@ -177,7 +173,7 @@ fun TomKitchen(modifier: Modifier = Modifier) {
                 )
                 LazyColumn(
                 ) {
-                    items(preparationMethodItems){
+                    items(preparationMethodItems) {
                         PreparationStep(
                             modifier = Modifier.padding(vertical = 8.dp),
                             numberOfStep = it.first,
@@ -201,7 +197,7 @@ fun TomKitchen(modifier: Modifier = Modifier) {
                     top = 18.dp,
                     end = 24.dp,
                 )
-                .offset(y=24.dp)
+                .offset(y = 24.dp)
 
         )
         //text above the meal
@@ -230,7 +226,7 @@ fun TomKitchen(modifier: Modifier = Modifier) {
                     fontSize = 16.sp,
                     color = white87,
                     letterSpacing = TextUnit(0.5f, TextUnitType.Sp),
-                    textAlign =TextAlign.Center,
+                    textAlign = TextAlign.Center,
                 )
             }
             Spacer(Modifier.size(16.dp))
@@ -252,10 +248,10 @@ fun TomKitchen(modifier: Modifier = Modifier) {
                     fontWeight = FontWeight.W500,
                     fontSize = 16.sp,
                     color = white87,
-                    letterSpacing = TextUnit(0.5f, TextUnitType.Sp)
-                    ,textAlign =TextAlign.Center,
+                    letterSpacing = TextUnit(0.5f, TextUnitType.Sp),
+                    textAlign = TextAlign.Center,
 
-                )
+                    )
             }
         }
         //bottom action
@@ -266,17 +262,16 @@ fun TomKitchen(modifier: Modifier = Modifier) {
                 .background(Color.White)
                 .align(Alignment.BottomCenter),
             contentAlignment = Alignment.Center
-        ){
+        ) {
             //bottom button
             Box(
-                modifier= Modifier
+                modifier = Modifier
                     .fillMaxSize()
                     .padding(16.dp)
                     .clip(RoundedCornerShape(16.dp))
                     .background(Color(0xff226993))
-                    .clickable {  }
-                , contentAlignment = Alignment.Center
-            ){
+                    .clickable { }, contentAlignment = Alignment.Center
+            ) {
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.Center
@@ -291,9 +286,12 @@ fun TomKitchen(modifier: Modifier = Modifier) {
                     )
                     Spacer(Modifier.size(8.dp))
                     Box(
-                        modifier = Modifier.size(5.dp).clip(RoundedCornerShape(100)).background(
-                            white38
-                        )
+                        modifier = Modifier
+                            .size(5.dp)
+                            .clip(RoundedCornerShape(100))
+                            .background(
+                                white38
+                            )
                     )
                     Spacer(Modifier.size(8.dp))
                     Column(
@@ -306,7 +304,7 @@ fun TomKitchen(modifier: Modifier = Modifier) {
                             color = Color(0xffFFFFFF),
                             letterSpacing = TextUnit(0.5f, TextUnitType.Sp),
                             textAlign = TextAlign.Center,
-                            lineHeight = TextUnit(value = 16f,type = TextUnitType.Sp)
+                            lineHeight = TextUnit(value = 16f, type = TextUnitType.Sp)
                         )
                         Text(
                             text = "5 cheeses",
@@ -316,7 +314,7 @@ fun TomKitchen(modifier: Modifier = Modifier) {
                             letterSpacing = TextUnit(0.5f, TextUnitType.Sp),
                             textAlign = TextAlign.Center,
                             textDecoration = TextDecoration.LineThrough,
-                            lineHeight = TextUnit(value = 16f,type = TextUnitType.Sp)
+                            lineHeight = TextUnit(value = 16f, type = TextUnitType.Sp)
                         )
                     }
                 }
@@ -339,7 +337,7 @@ fun PreparationStep(
         modifier = modifier
             .height(36.dp)
             .fillMaxWidth()
-     ) {
+    ) {
         Box(
             modifier = Modifier
                 .clip(RoundedCornerShape(topEnd = 12.dp, bottomEnd = 12.dp))
@@ -357,7 +355,7 @@ fun PreparationStep(
                 color = black60,
                 letterSpacing = TextUnit(0.5f, TextUnitType.Sp),
                 textAlign = TextAlign.Center,
-                modifier = Modifier.padding(start = 24 .dp)
+                modifier = Modifier.padding(start = 24.dp)
             )
         }
         //number box

@@ -32,12 +32,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.thechance.mostafadevo.tomandjerry.R
-import com.thechance.mostafadevo.tomandjerry.ui.screen.jerryStore.Product
+import com.thechance.mostafadevo.tomandjerry.ui.screen.jerryStore.Tom
 
 @Composable
 fun ProductCard(
     modifier: Modifier = Modifier,
-    product: Product,
+    tom: Tom,
     onAddClick: () -> Unit
 ) {
     Box(
@@ -68,7 +68,7 @@ fun ProductCard(
                     verticalArrangement = Arrangement.Center
                 ) {
                     Text(
-                        text = product.title,
+                        text = tom.title,
                         fontWeight = FontWeight.Bold,
                         fontSize = 18.sp
                     )
@@ -77,7 +77,7 @@ fun ProductCard(
                         Modifier.height(54.dp)
                     ) {
                         Text(
-                            text = product.subTitle,
+                            text = tom.subTitle,
                             fontSize = 12.sp,
                             color = Color.Gray,
                             maxLines = 3,
@@ -95,8 +95,8 @@ fun ProductCard(
                 ) {
                     PriceInfo(
                         color = Color(0xFFE9F6FB),
-                        oldPrice = product.oldPrice,
-                        newPrice = product.newPrice,
+                        oldPrice = tom.oldPrice,
+                        newPrice = tom.newPrice,
                     )
                     Spacer(Modifier.size(8.dp))
                     AddToCartButton(onClick = onAddClick, modifier = Modifier.size(30.dp))
@@ -104,7 +104,7 @@ fun ProductCard(
             }
         }
         Image(
-            painter = painterResource(product.tomImage),
+            painter = painterResource(tom.tomImage),
             contentDescription = "Tom Image",
             modifier = Modifier
                 .align(Alignment.TopCenter)
@@ -186,7 +186,7 @@ private fun ProductCardPrev() {
         verticalArrangement = Arrangement.Center
     ) {
         ProductCard(
-            product = Product(
+            tom = Tom(
                 title = "Sport Tom",
                 subTitle = "Disguises itself as a table.\n" +
                         "\n",
