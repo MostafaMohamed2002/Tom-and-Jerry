@@ -76,8 +76,9 @@ fun AppNavigation() {
             navController = navController,
             startDestination = AppRoutes.HOME, // Start with the HomeScreen
             modifier = Modifier
-                .statusBarsPadding() // Apply padding for status bars
-                .navigationBarsPadding() // Apply padding for navigation bars
+                .statusBarsPadding()
+                .navigationBarsPadding()
+                
             // .padding(innerPadding) // Apply padding from Scaffold if needed for content below AppBar/BottomBar
         ) {
             composable(AppRoutes.HOME) {
