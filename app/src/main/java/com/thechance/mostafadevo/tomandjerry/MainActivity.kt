@@ -25,6 +25,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.thechance.mostafadevo.tomandjerry.ui.screen.jerryStore.JerryStore
+import com.thechance.mostafadevo.tomandjerry.ui.screen.secretEpisodes.SecretEpisodesScreen
 import com.thechance.mostafadevo.tomandjerry.ui.screen.tomAccount.TomAccountScreen
 import com.thechance.mostafadevo.tomandjerry.ui.screen.tomKitcken.TomKitchen
 
@@ -34,7 +35,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            AppNavigation()
+            SecretEpisodesScreen(modifier = Modifier.statusBarsPadding())
         }
     }
 }
@@ -78,7 +79,7 @@ fun AppNavigation() {
             modifier = Modifier
                 .statusBarsPadding()
                 .navigationBarsPadding()
-                
+
             // .padding(innerPadding) // Apply padding from Scaffold if needed for content below AppBar/BottomBar
         ) {
             composable(AppRoutes.HOME) {
