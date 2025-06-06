@@ -4,16 +4,15 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -84,76 +83,90 @@ fun JerryStore(modifier: Modifier = Modifier) {
             .background(Color(0xffEEF4F6))
             .then(modifier)
     ) {
-        Column(
+        LazyColumn(
             modifier = Modifier
-                .padding(16.dp)
+                .fillMaxSize()
+                .padding(horizontal = 16.dp)
         ) {
-            Row(
-
-            ) {
-                JerryStoreAppBar(
-                    profileImage = R.drawable.profile_image_2,
-                    userName = "Jerry"
-                )
-                Spacer(Modifier.weight(1f))
-                JerryStoreNotificationIcon(
-                    notificationCount = 3
-                )
-            }
-            Spacer(Modifier.size(12.dp))
-            Row (
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.SpaceBetween,
-                modifier = Modifier.fillMaxWidth()
-            ){
-                SearchBar(
-                    modifier = Modifier.weight(1f),
-                    value = "",
-                    onValueChange = {  },
-                    placeholder = "Search about Tom ...",
-                    icon = R.drawable.search_normal
-                )
-                Spacer(Modifier.size(8.dp))
-                SettingsIcon {  }
-            }
-            PromotionBanner()
-            Spacer(Modifier.size(24.dp))
-            Row(
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
-                    text = "Cheap tom section",
-                    fontSize = 20.sp,
-                    fontWeight = FontWeight.Bold
-                )
-                Spacer(Modifier.weight(1f))
-                Text(
-                    text = "View all ",
-                    fontSize = 12.sp,
-                    fontWeight = FontWeight.W500,
-                    color = Color(0xFF03578A)
-                )
-                Spacer(Modifier.size(4.dp))
-                Image(
-                    painter = painterResource(R.drawable.arrow_right_04),
-                    contentDescription = "Arrow Right",
-                    modifier = Modifier.size(12.dp)
-                )
-
-            }
-            Spacer(Modifier.size(8.dp))
-            LazyVerticalGrid(
-                columns = GridCells.Fixed(2),
-                verticalArrangement = Arrangement.spacedBy(16.dp),
-                horizontalArrangement = Arrangement.spacedBy(16.dp)
-
-            ) {
-                items(listOfToms) { product ->
-                    ProductCard(
-                        tom = product, onAddClick = { })
+            item {
+                Spacer(Modifier.height(16.dp))
+                Row {
+                    JerryStoreAppBar(
+                        profileImage = R.drawable.profile_image_2,
+                        userName = "Jerry"
+                    )
+                    Spacer(Modifier.weight(1f))
+                    JerryStoreNotificationIcon(
+                        notificationCount = 3
+                    )
                 }
+                Spacer(Modifier.size(12.dp))
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    SearchBar(
+                        modifier = Modifier.weight(1f),
+                        value = "",
+                        onValueChange = { },
+                        placeholder = "Search about Tom ...",
+                        icon = R.drawable.search_normal
+                    )
+                    Spacer(Modifier.size(8.dp))
+                    SettingsIcon { }
+                }
+                PromotionBanner()
+                Spacer(Modifier.size(24.dp))
+                Row(
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        text = "Cheap tom section",
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+                    Spacer(Modifier.weight(1f))
+                    Text(
+                        text = "View all ",
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.W500,
+                        color = Color(0xFF03578A)
+                    )
+                    Spacer(Modifier.size(4.dp))
+                    Image(
+                        painter = painterResource(R.drawable.arrow_right_04),
+                        contentDescription = "Arrow Right",
+                        modifier = Modifier.size(12.dp)
+                    )
+                }
+                Spacer(Modifier.size(16.dp))
             }
 
+            val chunkedItems = listOfToms.chunked(2)
+            items(chunkedItems) { rowItems ->
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(16.dp),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    ProductCard(
+                        tom = rowItems[0],
+                        onAddClick = { },
+                        modifier = Modifier.weight(1f)
+                    )
+
+                    if (rowItems.size > 1) {
+                        ProductCard(
+                            tom = rowItems[1],
+                            onAddClick = { },
+                            modifier = Modifier.weight(1f)
+                        )
+                    } else {
+                        Spacer(Modifier.weight(1f))
+                    }
+                }
+                Spacer(modifier = Modifier.height(16.dp))
+            }
         }
     }
 }

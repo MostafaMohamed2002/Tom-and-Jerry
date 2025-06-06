@@ -81,108 +81,105 @@ fun TomKitchen(modifier: Modifier = Modifier) {
                 .clip(RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp))
                 .background(Color(0xffEEF4F6))
         ) {
-            Column(
+            LazyColumn(
                 modifier = Modifier
-                    .matchParentSize()
+                    .fillMaxSize()
                     .padding(start = 16.dp, end = 16.dp)
             ) {
-                //page content
-                Spacer(Modifier.size(32.dp))
-                Row(
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Column {
-                        Text(
-                            text = "Electric Tom pasta",
-                            fontWeight = FontWeight.W500,
-                            fontSize = 20.sp,
-                            color = black87,
-                            letterSpacing = TextUnit(0.5f, TextUnitType.Sp),
-                            lineHeight = TextUnit(value = 32f, type = TextUnitType.Sp)
-                        )
-                        Spacer(Modifier.size(12.dp))
-                        PriceInfo(
-                            color = Color(0xFFD0E5F0),
-                            oldPrice = 5, newPrice = 5,
-                        )
-                    }
-                    Spacer(Modifier.weight(1f))
-                    Icon(
-                        painter = painterResource(R.drawable.heart),
-                        contentDescription = "Heart",
-                        modifier = Modifier.size(24.dp),
-                        tint = Color.Unspecified
-
-                    )
-                }
-                Spacer(Modifier.size(16.dp))
-                //Details about meal
-                Text(
-                    text = "Pasta cooked with a charger cable and sprinkled with questionable cheese. Make sure to unplug it before eating (or not, you decide).",
-                    fontWeight = FontWeight.W500,
-                    fontSize = 14.sp,
-                    color = black60,
-                    letterSpacing = TextUnit(0.5f, TextUnitType.Sp)
-
-                )
-                Spacer(Modifier.size(24.dp))
-                //Details Section
-                Text(
-                    text = "Details",
-                    fontWeight = FontWeight.W500,
-                    fontSize = 18.sp,
-                    color = black87,
-                    letterSpacing = TextUnit(0.5f, TextUnitType.Sp)
-
-                )
-                Spacer(Modifier.size(8.dp))
-                Row(
-                    horizontalArrangement = Arrangement.spacedBy(8.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    DetailsContainer(
-                        modifier = Modifier.weight(1f),
-                        icon = R.drawable.temperature,
-                        title = "1000 V",
-                        subTitle = "Temperature",
-
-                        )
-                    DetailsContainer(
-                        modifier = Modifier.weight(1f),
-                        icon = R.drawable.timer_02,
-                        title = "3 sparks",
-                        subTitle = "Time"
-                    )
-                    DetailsContainer(
-                        modifier = Modifier.weight(1f),
-                        icon = R.drawable.evil,
-                        title = "1M 12K",
-                        subTitle = "No. of deaths"
-                    )
-                }
-                Spacer(Modifier.size(24.dp))
-                // Preparation Method Section
-                Text(
-                    text = "Preparation method",
-                    fontWeight = FontWeight.W500,
-                    fontSize = 18.sp,
-                    color = black87,
-                    letterSpacing = TextUnit(0.5f, TextUnitType.Sp)
-
-                )
-                LazyColumn(
-                ) {
-                    items(preparationMethodItems) {
-                        PreparationStep(
-                            modifier = Modifier.padding(vertical = 8.dp),
-                            numberOfStep = it.first,
-                            stepText = it.second
+                item {
+                    // --- Page Content ---
+                    Spacer(Modifier.size(32.dp))
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Column {
+                            Text(
+                                text = "Electric Tom pasta",
+                                fontWeight = FontWeight.W500,
+                                fontSize = 20.sp,
+                                color = black87,
+                                letterSpacing = TextUnit(0.5f, TextUnitType.Sp),
+                                lineHeight = TextUnit(value = 32f, type = TextUnitType.Sp)
+                            )
+                            Spacer(Modifier.size(12.dp))
+                            PriceInfo(
+                                color = Color(0xFFD0E5F0),
+                                oldPrice = 5, newPrice = 5,
+                            )
+                        }
+                        Spacer(Modifier.weight(1f))
+                        Icon(
+                            painter = painterResource(R.drawable.heart),
+                            contentDescription = "Heart",
+                            modifier = Modifier.size(24.dp),
+                            tint = Color.Unspecified
                         )
                     }
+                    Spacer(Modifier.size(16.dp))
+                    // --- Details about meal ---
+                    Text(
+                        text = "Pasta cooked with a charger cable and sprinkled with questionable cheese. Make sure to unplug it before eating (or not, you decide).",
+                        fontWeight = FontWeight.W500,
+                        fontSize = 14.sp,
+                        color = black60,
+                        letterSpacing = TextUnit(0.5f, TextUnitType.Sp)
+                    )
+                    Spacer(Modifier.size(24.dp))
+                    // --- Details Section ---
+                    Text(
+                        text = "Details",
+                        fontWeight = FontWeight.W500,
+                        fontSize = 18.sp,
+                        color = black87,
+                        letterSpacing = TextUnit(0.5f, TextUnitType.Sp)
+                    )
+                    Spacer(Modifier.size(8.dp))
+                    Row(
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        DetailsContainer(
+                            modifier = Modifier.weight(1f),
+                            icon = R.drawable.temperature,
+                            title = "1000 V",
+                            subTitle = "Temperature",
+                        )
+                        DetailsContainer(
+                            modifier = Modifier.weight(1f),
+                            icon = R.drawable.timer_02,
+                            title = "3 sparks",
+                            subTitle = "Time"
+                        )
+                        DetailsContainer(
+                            modifier = Modifier.weight(1f),
+                            icon = R.drawable.evil,
+                            title = "1M 12K",
+                            subTitle = "No. of deaths"
+                        )
+                    }
+                    Spacer(Modifier.size(24.dp))
+                    Text(
+                        text = "Preparation method",
+                        fontWeight = FontWeight.W500,
+                        fontSize = 18.sp,
+                        color = black87,
+                        letterSpacing = TextUnit(0.5f, TextUnitType.Sp)
+                    )
                 }
 
+                items(preparationMethodItems) { item ->
+                    PreparationStep(
+                        modifier = Modifier.padding(vertical = 8.dp),
+                        numberOfStep = item.first,
+                        stepText = item.second
+                    )
+                }
+                item{
+                    Spacer(Modifier.size(86.dp))
+                }
             }
+
         }
         //image of the meal
         Image(

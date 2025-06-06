@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
@@ -143,88 +144,105 @@ fun TomAccountScreen(modifier: Modifier = Modifier) {
             Modifier
                 .padding(top = 180.dp)
                 .clip(RoundedCornerShape(topStart = 20.dp, topEnd = 20.dp))
-                .fillMaxSize()
+
                 .background(Color(0xFFEEF4F6))
                 .align(Alignment.TopCenter)
         ) {
-            Column(
-                horizontalAlignment = Alignment.Start,
+            LazyColumn(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(start = 16.dp, end = 16.dp)
             ) {
-                Spacer(Modifier.size(23.dp))
-                //first row of stats items
-                Row() {
-                    StatsItem(
-                        modifier = Modifier.weight(1f),
-                        stats = listOfStatsItems.get(0)
-                    )
-                    Spacer(Modifier.size(8.dp))
-                    StatsItem(
-                        modifier = Modifier.weight(1f),
-                        stats = listOfStatsItems.get(1)
-                    )
-                }
-                Spacer(Modifier.size(8.dp))
-                //second row of stats items
-                Row() {
-                    StatsItem(
-                        modifier = Modifier.weight(1f),
-                        stats = listOfStatsItems.get(2)
-                    )
-                    Spacer(Modifier.size(8.dp))
-                    StatsItem(
-                        modifier = Modifier.weight(1f),
-                        stats = listOfStatsItems.get(3)
-                    )
-                }
-                Spacer(Modifier.size(24.dp))
-
-                SectionHeader(title = "Tom settings")
-                Spacer(Modifier.size(8.dp))
-                LazyColumn(
-                    verticalArrangement = Arrangement.spacedBy(12.dp)
-                ) {
-                    items(listOfTomSettings.size) {
-                        ListItem(
-                            icon = listOfTomSettings.get(it).second,
-                            text = listOfTomSettings.get(it).first
+                item {
+                    Spacer(Modifier.size(23.dp))
+                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                        StatsItem(
+                            modifier = Modifier.weight(1f),
+                            stats = listOfStatsItems[0]
+                        )
+                        StatsItem(
+                            modifier = Modifier.weight(1f),
+                            stats = listOfStatsItems[1]
                         )
                     }
+                    Spacer(Modifier.size(8.dp))
+                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                        StatsItem(
+                            modifier = Modifier.weight(1f),
+                            stats = listOfStatsItems[2]
+                        )
+                        StatsItem(
+                            modifier = Modifier.weight(1f),
+                            stats = listOfStatsItems[3]
+                        )
+                    }
+                    Spacer(Modifier.size(24.dp))
                 }
-                Spacer(Modifier.size(12.dp))
-                HorizontalDivider(
-                    thickness = 1.dp,
-                    color = Color(0x14001A1F)
-                )
-                Spacer(Modifier.size(12.dp))
 
-                SectionHeader(title = "His favorite foods")
-                Spacer(Modifier.size(8.dp))
-                LazyColumn(
-                    verticalArrangement = Arrangement.spacedBy(12.dp)
-                ) {
-                    items(listOfFavouriteFoods.size) {
-                        ListItem(
-                            icon = listOfFavouriteFoods.get(it).second,
-                            text = listOfFavouriteFoods.get(it).first
+                item {
+                    SectionHeader(title = "Tom settings")
+                    Spacer(Modifier.size(8.dp))
+                }
+
+                items(
+                    items = listOfTomSettings,
+                    key = { it.first }
+                ) { setting ->
+                    ListItem(
+                        icon = setting.second,
+                        text = setting.first
+                    )
+                    if (listOfTomSettings.last() != setting) {
+                        Spacer(Modifier.height(12.dp))
+                    }
+                }
+
+                item {
+                    Spacer(Modifier.size(12.dp))
+                    HorizontalDivider(
+                        thickness = 1.dp,
+                        color = Color(0x14001A1F)
+                    )
+                    Spacer(Modifier.size(12.dp))
+                }
+
+                item {
+                    SectionHeader(title = "His favorite foods")
+                    Spacer(Modifier.size(8.dp))
+                }
+
+                items(
+                    items = listOfFavouriteFoods,
+                    key = { it.first }
+                ) { food ->
+                    ListItem(
+                        icon = food.second,
+                        text = food.first
+                    )
+                    if (listOfFavouriteFoods.last() != food) {
+                        Spacer(Modifier.height(12.dp))
+                    }
+                }
+
+                item {
+                    Box(
+                        contentAlignment = Alignment.Center,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(vertical = 24.dp)
+                    ) {
+                        Text(
+                            text = "v.TomBeta",
+                            color = black60,
+                            fontSize = 12.sp,
+                            fontWeight = FontWeight.W400,
+                            letterSpacing = TextUnit(0f, TextUnitType.Sp),
+                            textAlign = TextAlign.Center
                         )
                     }
                 }
             }
 
-            Text(
-                text = "v.TomBeta",
-                color = black60,
-                fontSize = 12.sp,
-                fontWeight = FontWeight.W400,
-                letterSpacing = TextUnit(0f, TextUnitType.Sp),
-                textAlign = TextAlign.Center,
-                modifier = Modifier
-                    .align(Alignment.BottomCenter)
-                    .padding(bottom = 24.dp)
-            )
 
         }
     }
